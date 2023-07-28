@@ -1,0 +1,69 @@
+<template>
+    <lightning-card title="QUIZ APP IN LWC">
+        <div class="slds-m-bottom_medium">
+            <div>rendering</div>
+           <c-hello-parent-comp></c-hello-parent-comp>
+            <form>
+                <template for:each={myQuestions} for:item="quiz">
+                    <div key={quiz.id} class="slds-m-arround_medium">
+                        <div><strong>{quiz.id} - {quiz.question}</strong></div>
+                        <div class="slds-grid slds-gutters slds-p-bottom_medium">
+                            <div class="slds-col">
+                                <input type="radio" name={quiz.id} value="a" onchange={onChangeHandler} />
+                                 {quiz.answers.a}
+                            </div>
+                            <div class="slds-col">
+                                <input type="radio" name={quiz.id} value="b" onchange={onChangeHandler} />
+                                {quiz.answers.b}
+                            </div>
+                            <div class="slds-col">
+                                <input type="radio" name={quiz.id} value="c" onchange={onChangeHandler} />
+                                {quiz.answers.c}
+                            </div>
+                            <div class="slds-col">
+                                <input type="radio" name={quiz.id} value="d" onchange={onChangeHandler} />
+                                {quiz.answers.d}
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <lightning-button variant="brand" 
+                label="Submit" 
+                type="submit"
+                title="submit Quiz" 
+                class="slds-m-around_medium"
+                disabled={allNotSelected}
+                onclick={submitHandler}>
+                </lightning-button>
+                <lightning-button variant="brand" 
+                label="Reset" 
+                type="reset"
+                title="Reset Quiz" 
+                class="slds-m-around_medium"
+                disabled={hideResetBtn}
+                onclick={resetHandler}>
+                </lightning-button>
+                
+            </form>
+        </div>
+        <template lwc:if={isSubmitted}>
+            <div class = {isScoredFull}>Your score is {correctAnswers} out of {myQuestions.length} </div>
+        </template>
+    </lightning-card>
+
+    <!-- <lightning-card title="For each with array of object">
+        <div class="slds-m-around_xx-medium">
+        <template for:each={myQuestions} for:item="list">
+             <div class="slds-has-dividers_around" key={list.id}>{list.question} </div> 
+        </template>
+    </div>
+     </lightning-card>
+
+     <lightning-card title="Iterator">
+        <div class="slds-m-around_xx-medium">
+        <template iterator:it={myQuestions}>
+             <div class="slds-has-dividers_around" key={it.value.id}>{it.value.id} </div> 
+        </template>
+    </div>
+     </lightning-card> -->
+</template>

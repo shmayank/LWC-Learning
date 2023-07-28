@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Conditional Rendering">
+        <div class="slds-m-around_xx-medium">
+            <lightning-button variant="brand" label="Show Data"
+             title="Looks like a link" onclick={handleClick} 
+             class="slds-m-left_x-small"></lightning-button>
+        </div>
+        <template if:true={isVisible}>
+            <div>To show the Data based on condetional rendering</div>
+        </template>
+        <template if:false={isVisible}>
+            <div>You cant see the data now. Click on Show Data btn</div>
+        </template>
+        <lightning-input type="text" label="Enter Some here" onkeyup={changeHandler}></lightning-input>
+        <template if:true={helloMethod}>
+            <div> Entered correct data here</div>
+        </template>
+
+        <!-- Improved LWC Rendering -->
+        <template lwc:if={isVisible}>
+            <div>To show the Data based on improved condetional rendering</div>
+        </template>
+        <template lwc:else>
+            <div>inside LWC else </div>
+        </template>
+
+    </lightning-card>
+</template>

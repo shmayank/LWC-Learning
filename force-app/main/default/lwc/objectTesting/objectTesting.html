@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title='trackable object'>
+
+        <div class="slds-m-around_medium"> 
+            <p>Name {person.name}!</p> 
+            <lightning-input lable="Name" value={person.name} onchange={changeNameHandler}></lightning-input>
+            <p>Age {person.age}!</p> 
+            <lightning-input lable="Age" value={person.age} onchange={changeAgeHandler}></lightning-input>
+           
+            </div>
+    </lightning-card>
+</template>

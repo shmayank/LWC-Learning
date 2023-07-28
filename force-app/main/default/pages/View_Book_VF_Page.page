@@ -1,0 +1,6 @@
+<apex:page >
+    <apex:includeScript value="{!$Resource.myscript}"/>
+    <apex:detail relatedList="false"
+                 inlineEdit="true"
+                 oncomplete="helloWordl()" />
+</apex:page>

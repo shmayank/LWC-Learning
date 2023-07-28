@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable" controller="AccountController">
+<aura:attribute name="newAccount" type="Account"
+     default="{ 'sobjectType': 'Account',
+                     'Name': '',
+                   }"/>
+<div>
+<form>
+      <lightning:input aura:id="AccountName" 
+                    label="Name"
+                    value="{!v.newAccount.Name}"
+                    required="true"/>
+
+       <lightning:button class="slds-m-top_small" variant="brand" label="Pass Value To Parent" title="Click Here" onclick="{! c.createAccount }"/>
+</form>
+    </div>
+</aura:component >

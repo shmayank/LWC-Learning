@@ -1,0 +1,9 @@
+<template> 
+    <lightning-input type='checkbox' label="Show Div!" onchange={showDivHandler}></lightning-input> 
+    <template if:true={displayDiv}> 
+        <div> I am here! </div> 
+    </template> 
+     <template iterator:it={cityList}> 
+        <p key={it.value}>{it.value} {it.index} {it.first} {it.last}</p> 
+    </template>
+</template>
